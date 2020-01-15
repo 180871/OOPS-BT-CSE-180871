@@ -1,11 +1,13 @@
 #include<iostream>
-int power(int m, int n);
-void display(int m,int n=2);
+int power(int m, int n=2);
+void print(int x);
 int main()
 {
 	int x=2,y=5;
-	display(x);
-	display(x,y);
+	printf("2 to the power 2 is: ");
+	print(power(x));
+	printf("\n2 to the power 5 is: ");
+	print(power(x,y));
 	return 0;
 }
 int power(int m,int n)
@@ -18,14 +20,7 @@ int power(int m,int n)
 	return m*power(m,n/2)*power(m,n/2);	
 	
 }
-
-void display(int m,int n)
+void print(int x)
 {
-	printf("%d to the power %d is %d.\n",m,n,power(m,n));
+	printf("%d",x);
 }
-
-
-
-
-
-
