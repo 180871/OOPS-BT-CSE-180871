@@ -1,22 +1,23 @@
 #include<iostream>
-#include<stdlib.h>
 using namespace std;
 class Array
 {
     private:
     int *arr;
     int x=0;
+    int length;
     public:
         Array(int n)
         {
             arr=new int[n];
+            length=n;
         }
         void add(int n)
         {
-            int size=sizeof(arr);
-            if(x>size)
+            if(x>length-1)
             {
                 cout<<"Stack overflow "<<endl;
+                return;
             }
             arr[x]=n;
             x+=1;
@@ -37,27 +38,20 @@ class Array
             }
             cout<<endl;
         }
-        int* getArray()
-        {
-            return arr;
-        }
 };
 int main()
 {
-    Array a(3);
-    a.add(2);
-    a.display();
-    a.add(5);
-    a.display();
-    a.add(7);
-    a.display();
-    a.add(4);
-    a.display();
-    a.add(8);
-    a.display();
-    a.add(7);
-    a.display();
-    a.add(2);
+    cout<<"Enter size:"<<endl;
+    int x;
+    cin>>x;
+    Array a(x);
+    cout<<"Enter the elements:"<<endl;
+    for(int i=0;i<x;i++)
+    {
+        int n;
+        cin>>n;
+        a.add(n);
+    }
     a.display();
     return 0;
 }
